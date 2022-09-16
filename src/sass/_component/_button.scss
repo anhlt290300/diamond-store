@@ -1,0 +1,45 @@
+.button{
+    color: $txt-body-color;
+    background: white;
+    border: 0.1px solid $txt-body-color;
+    @include flex(center,center);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    padding: 10px ;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+    animation: btnAnimate 4s infinite;
+}
+
+.button:hover{
+    color: white;
+    background: $txt-body-color;    
+    animation: none;
+}
+
+.button.sm{
+    font-size: 0.8rem;
+}
+
+.button.md{
+    font-size: 0.9rem;
+}
+
+.button.lg{
+    font-size: 1.1rem;
+}
+
+@keyframes btnAnimate{
+
+    50%{
+        background: rgba($color: #212529, $alpha: 0.5);
+        color: rgba($color: white, $alpha: 0.5);
+    }
+    
+    
+    100%{
+        background: rgba($color: #212529, $alpha: 1.0);
+        color: rgba($color: white, $alpha: 1.0);
+    }
+    
+}

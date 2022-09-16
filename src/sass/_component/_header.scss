@@ -1,8 +1,6 @@
 .header{
     width: 100%;
-    
-
-
+    z-index: 1;
     .menu-top{
         @include flex(center,space-between);
         margin: 20px 0;
@@ -90,6 +88,10 @@
 
         .box-logo{
             height: 8rem;
+            @include flex(center,center);
+            a{
+                @include flex(center,center);
+            }
         }
 
         .box-menu{

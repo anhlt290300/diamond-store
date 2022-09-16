@@ -1,8 +1,11 @@
 import React from 'react'
+import SliderShow from '../component/SliderShow'
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <div className='home' style={{ zIndex: 1}}>
+      <SliderShow />
+    </div>
   )
 }
 
