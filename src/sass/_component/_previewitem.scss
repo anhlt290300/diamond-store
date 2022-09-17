@@ -1,0 +1,82 @@
+.previewitem{   
+    margin: 5rem 0;
+    height: 550px;
+    @include flex(center, space-between);
+
+    &__item.small{
+        max-width: 28vw;
+        @include flex(center, space-between);
+    }
+
+    &__item.big{
+        width: 55vw;
+        height: 100%;
+    }
+
+    &__item{
+        position: relative;
+        height: 100%;
+
+        &__text{
+            width: 10rem;
+            cursor: pointer;
+            &__title{
+                font-size: 2rem;
+                font-weight: 600;
+                letter-spacing: 2px;
+                margin-bottom: 0.5rem;
+            }
+
+            &__price{
+                font-size: 1.1rem;
+                color: $main-color;
+                letter-spacing: 1px;
+                margin-bottom: 2rem;
+            }
+
+            &__btn{
+                font-size: 0.9rem;
+                letter-spacing: 3px;
+                
+            }
+
+        }
+    }
+
+    &__item.small{
+        @include flex(flex-start,space-between);
+        flex-direction: column-reverse;
+    }
+
+    &__item.small &__item{
+        &__text{
+            margin-left: 1rem;
+        }
+
+        &__img{
+            width: 25vw;
+            height: 25vw;
+        }
+    }
+
+    &__item.big &__item{
+        &__text{
+            position: absolute;
+            top: 20%;
+        }   
+
+        &__img{
+            position: absolute;
+            right: 0;
+            img{
+                height: 550px;
+            }
+        }
+    }
+}
+
+.previewitem.left,.previewitem.right .previewitem{
+    &__item{
+        height: 100%;
+    }
+}
