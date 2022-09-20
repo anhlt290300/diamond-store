@@ -1,143 +1,207 @@
-const product__img__1 = require('../image/products/product1.jpg');
-const product__img__2 = require('../image/products/product2.jpg');
-const product__img__3 = require('../image/products/product3.jpg');
-const product__img__4 = require('../image/products/product4.jpg');
-const product__img__5 = require('../image/products/product5.jpg');
-const product__img__6 = require('../image/products/product6.jpg');
-const product__img__7 = require('../image/products/product7.jpg');
-const product__img__9 = require('../image/products/product9.jpg');
-const product__img__10 = require('../image/products/product10.jpg');
-const product__img__11 = require('../image/products/product11.jpg');
-const product__img__12 = require('../image/products/product12.jpg');
-const product__img__13 = require('../image/products/product13.jpg');
-const product__img__14 = require('../image/products/product14.jpg');
+const product__01__01 = require('../image/products/product01_01.png');
+const product__01__02 = require('../image/products/product01_02.png');
+const product__01__03 = require('../image/products/product01_03.png');
+const product__01__04 = require('../image/products/product01_04.png');
+const product__01__05 = require('../image/products/product01_05.png');
+const product__01__06 = require('../image/products/product01_06.png');
+
+const product__01__07 = require('../image/products/anh1.webp');
+
 
 const products = [
     {
-        name: 'Black canvas bag',
-        display: 'back-canvas-bag',
-        type: 'choker',
-        price: 39.90,
-        img: product__img__1,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.'
+        name: 'Lucent ring',
+        path: 'Lucent-ring',
+        type: 'ring',
+        color: 'pink',
+        price: 225,
+        img: {
+            img1: product__01__07,
+            img2: product__01__02,
+            img3: product__01__03,
+            img4: product__01__04,
+            img5: product__01__05,
+            img6: product__01__06
+        },
+        description: 'Express your individuality with this playful motif ring. Featuring a sliced pear cut crystal in a vibrant pink hue, this statement piece has an innovative magnetic closure and rhodium plated double band. Wear yours solo or stacked with other designs from the Lucent family to dress up a simple outfit. This ring is part of the Lucent family, designed by Creative Director Giovanna Engelbert for Collection II.'
     },
     {
-        name: 'Black canvas bag',
-        display: 'back-canvas-bag',
-        type: 'choker',
-        price: 39.90,
-        img: product__img__2,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.'
-    
+        name: 'Lucent ring',
+        path: 'Lucent-ring',
+        type: 'ring',
+        color: 'pink',
+        price: 225,
+        img: {
+            img1: product__01__07,
+            img2: product__01__02,
+            img3: product__01__03,
+            img4: product__01__04,
+            img5: product__01__05,
+            img6: product__01__06
+        },
+        description: 'Express your individuality with this playful motif ring. Featuring a sliced pear cut crystal in a vibrant pink hue, this statement piece has an innovative magnetic closure and rhodium plated double band. Wear yours solo or stacked with other designs from the Lucent family to dress up a simple outfit. This ring is part of the Lucent family, designed by Creative Director Giovanna Engelbert for Collection II.'
     },
     {
-        name: 'Black canvas bag',
-        display: 'back-canvas-bag',
-        type: 'choker',
-        price: 39.90,
-        img: product__img__3,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.'
-    
+        name: 'Lucent ring',
+        path: 'Lucent-ring',
+        type: 'ring',
+        color: 'pink',
+        price: 225,
+        img: {
+            img1: product__01__07,
+            img2: product__01__02,
+            img3: product__01__03,
+            img4: product__01__04,
+            img5: product__01__05,
+            img6: product__01__06
+        },
+        description: 'Express your individuality with this playful motif ring. Featuring a sliced pear cut crystal in a vibrant pink hue, this statement piece has an innovative magnetic closure and rhodium plated double band. Wear yours solo or stacked with other designs from the Lucent family to dress up a simple outfit. This ring is part of the Lucent family, designed by Creative Director Giovanna Engelbert for Collection II.'
     },
     {
-        name: 'Black canvas bag',
-        display: 'back-canvas-bag',
-        type: 'choker',
-        price: 39.90,
-        img: product__img__4,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.'
-    
+        name: 'Lucent ring',
+        path: 'Lucent-ring',
+        type: 'ring',
+        color: 'pink',
+        price: 225,
+        img: {
+            img1: product__01__07,
+            img2: product__01__02,
+            img3: product__01__03,
+            img4: product__01__04,
+            img5: product__01__05,
+            img6: product__01__06
+        },
+        description: 'Express your individuality with this playful motif ring. Featuring a sliced pear cut crystal in a vibrant pink hue, this statement piece has an innovative magnetic closure and rhodium plated double band. Wear yours solo or stacked with other designs from the Lucent family to dress up a simple outfit. This ring is part of the Lucent family, designed by Creative Director Giovanna Engelbert for Collection II.'
     },
     {
-        name: 'Black canvas bag',
-        display: 'back-canvas-bag',
-        type: 'choker',
-        price: 39.90,
-        img: product__img__5,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.'
-    
+        name: 'Lucent ring',
+        path: 'Lucent-ring',
+        type: 'ring',
+        color: 'pink',
+        price: 225,
+        img: {
+            img1: product__01__07,
+            img2: product__01__02,
+            img3: product__01__03,
+            img4: product__01__04,
+            img5: product__01__05,
+            img6: product__01__06
+        },
+        description: 'Express your individuality with this playful motif ring. Featuring a sliced pear cut crystal in a vibrant pink hue, this statement piece has an innovative magnetic closure and rhodium plated double band. Wear yours solo or stacked with other designs from the Lucent family to dress up a simple outfit. This ring is part of the Lucent family, designed by Creative Director Giovanna Engelbert for Collection II.'
     },
     {
-        name: 'Black canvas bag',
-        display: 'back-canvas-bag',
-        type: 'choker',
-        price: 39.90,
-        img: product__img__6,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.'
-    
+        name: 'Lucent ring',
+        path: 'Lucent-ring',
+        type: 'ring',
+        color: 'pink',
+        price: 225,
+        img: {
+            img1: product__01__07,
+            img2: product__01__02,
+            img3: product__01__03,
+            img4: product__01__04,
+            img5: product__01__05,
+            img6: product__01__06
+        },
+        description: 'Express your individuality with this playful motif ring. Featuring a sliced pear cut crystal in a vibrant pink hue, this statement piece has an innovative magnetic closure and rhodium plated double band. Wear yours solo or stacked with other designs from the Lucent family to dress up a simple outfit. This ring is part of the Lucent family, designed by Creative Director Giovanna Engelbert for Collection II.'
     },
     {
-        name: 'Black canvas bag',
-        display: 'back-canvas-bag',
-        type: 'choker',
-        price: 39.90,
-        img: product__img__7,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.'
-    
+        name: 'Lucent ring',
+        path: 'Lucent-ring',
+        type: 'ring',
+        color: 'pink',
+        price: 225,
+        img: {
+            img1: product__01__07,
+            img2: product__01__02,
+            img3: product__01__03,
+            img4: product__01__04,
+            img5: product__01__05,
+            img6: product__01__06
+        },
+        description: 'Express your individuality with this playful motif ring. Featuring a sliced pear cut crystal in a vibrant pink hue, this statement piece has an innovative magnetic closure and rhodium plated double band. Wear yours solo or stacked with other designs from the Lucent family to dress up a simple outfit. This ring is part of the Lucent family, designed by Creative Director Giovanna Engelbert for Collection II.'
     },
     {
-        name: 'Black canvas bag',
-        display: 'back-canvas-bag',
-        type: 'choker',
-        price: 39.90,
-        img: product__img__2,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.'
-    
+        name: 'Lucent ring',
+        path: 'Lucent-ring',
+        type: 'ring',
+        color: 'pink',
+        price: 225,
+        img: {
+            img1: product__01__07,
+            img2: product__01__02,
+            img3: product__01__03,
+            img4: product__01__04,
+            img5: product__01__05,
+            img6: product__01__06
+        },
+        description: 'Express your individuality with this playful motif ring. Featuring a sliced pear cut crystal in a vibrant pink hue, this statement piece has an innovative magnetic closure and rhodium plated double band. Wear yours solo or stacked with other designs from the Lucent family to dress up a simple outfit. This ring is part of the Lucent family, designed by Creative Director Giovanna Engelbert for Collection II.'
     },
     {
-        name: 'Black canvas bag',
-        display: 'back-canvas-bag',
-        type: 'choker',
-        price: 39.90,
-        img: product__img__9,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.'
-    
+        name: 'Lucent ring',
+        path: 'Lucent-ring',
+        type: 'ring',
+        color: 'pink',
+        price: 225,
+        img: {
+            img1: product__01__07,
+            img2: product__01__02,
+            img3: product__01__03,
+            img4: product__01__04,
+            img5: product__01__05,
+            img6: product__01__06
+        },
+        description: 'Express your individuality with this playful motif ring. Featuring a sliced pear cut crystal in a vibrant pink hue, this statement piece has an innovative magnetic closure and rhodium plated double band. Wear yours solo or stacked with other designs from the Lucent family to dress up a simple outfit. This ring is part of the Lucent family, designed by Creative Director Giovanna Engelbert for Collection II.'
     },
     {
-        name: 'Black canvas bag',
-        display: 'back-canvas-bag',
-        type: 'choker',
-        price: 39.90,
-        img: product__img__10,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.'
-    
+        name: 'Lucent ring',
+        path: 'Lucent-ring',
+        type: 'ring',
+        color: 'pink',
+        price: 225,
+        img: {
+            img1: product__01__07,
+            img2: product__01__02,
+            img3: product__01__03,
+            img4: product__01__04,
+            img5: product__01__05,
+            img6: product__01__06
+        },
+        description: 'Express your individuality with this playful motif ring. Featuring a sliced pear cut crystal in a vibrant pink hue, this statement piece has an innovative magnetic closure and rhodium plated double band. Wear yours solo or stacked with other designs from the Lucent family to dress up a simple outfit. This ring is part of the Lucent family, designed by Creative Director Giovanna Engelbert for Collection II.'
     },
     {
-        name: 'Black canvas bag',
-        display: 'back-canvas-bag',
-        type: 'choker',
-        price: 39.90,
-        img: product__img__11,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.'
-    
+        name: 'Lucent ring',
+        path: 'Lucent-ring',
+        type: 'ring',
+        color: 'pink',
+        price: 225,
+        img: {
+            img1: product__01__07,
+            img2: product__01__02,
+            img3: product__01__03,
+            img4: product__01__04,
+            img5: product__01__05,
+            img6: product__01__06
+        },
+        description: 'Express your individuality with this playful motif ring. Featuring a sliced pear cut crystal in a vibrant pink hue, this statement piece has an innovative magnetic closure and rhodium plated double band. Wear yours solo or stacked with other designs from the Lucent family to dress up a simple outfit. This ring is part of the Lucent family, designed by Creative Director Giovanna Engelbert for Collection II.'
     },
     {
-        name: 'Black canvas bag',
-        display: 'back-canvas-bag',
-        type: 'choker',
-        price: 39.90,
-        img: product__img__12,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.'
-    
+        name: 'Lucent ring',
+        path: 'Lucent-ring',
+        type: 'ring',
+        color: 'pink',
+        price: 225,
+        img: {
+            img1: product__01__07,
+            img2: product__01__02,
+            img3: product__01__03,
+            img4: product__01__04,
+            img5: product__01__05,
+            img6: product__01__06
+        },
+        description: 'Express your individuality with this playful motif ring. Featuring a sliced pear cut crystal in a vibrant pink hue, this statement piece has an innovative magnetic closure and rhodium plated double band. Wear yours solo or stacked with other designs from the Lucent family to dress up a simple outfit. This ring is part of the Lucent family, designed by Creative Director Giovanna Engelbert for Collection II.'
     },
-    {
-        name: 'Black canvas bag',
-        display: 'back-canvas-bag',
-        type: 'choker',
-        price: 39.90,
-        img: product__img__13,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.'
     
-    },
-    {
-        name: 'Black canvas bag',
-        display: 'back-canvas-bag',
-        type: 'choker',
-        price: 39.90,
-        img: product__img__14,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.'
-    
-    },
 
 ]
 
@@ -147,6 +211,8 @@ const getProducts = (count) => {
     const start = Math.floor(Math.random() * (max - min) + min)
     return products.slice(start, start + count)
 }
+
+
 
 const getProductsByType = (name) =>  products.find(Element => Element.type ===name)
 

@@ -1,20 +1,52 @@
-.button{
-    color: $txt-body-color;
-    background: white;
-    border: 0.1px solid $txt-body-color;
+.button{   
+    background: rgba(255, 255, 255, 0);
     @include flex(center,center);
     text-transform: uppercase;
     letter-spacing: 3px;
     padding: 10px ;
     font-weight: 600;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;    
+    cursor: pointer;
+}
+
+.button.dark{
+    color: $txt-body-color;
+    border: 0.1px solid $txt-body-color;
+}
+
+.button.light{
+    color: white;
+    border: 0.1px solid white;
+}
+
+.button.true{
     animation: btnAnimate 4s infinite;
 }
 
-.button:hover{
+.button.dark:hover{
     color: white;
     background: $txt-body-color;    
     animation: none;
+}
+
+.button.light:hover{
+    color: $txt-body-color;
+    background: white;    
+    animation: none;
+}
+
+.link-btn:hover{
+    .button.dark{
+        color: white;
+        background: $txt-body-color;    
+        animation: none;
+    }
+
+    .button.light:hover{
+        color: $txt-body-color;
+        background: white;    
+        animation: none;
+    }
 }
 
 .button.sm{

@@ -1,15 +1,15 @@
 .previewitem{   
     margin: 5rem 0;
-    height: 550px;
+    height: 600px;
     @include flex(center, space-between);
 
     &__item.small{
-        max-width: 28vw;
+        max-width: 30vw;
         @include flex(center, space-between);
     }
 
     &__item.big{
-        width: 55vw;
+        width: 50vw;
         height: 100%;
     }
 
@@ -41,6 +41,11 @@
             }
 
         }
+
+        &__img{
+            background-color: rgba(190, 202, 210, 0.15);
+            @include flex(center,center);
+        }
     }
 
     &__item.small{
@@ -54,22 +59,25 @@
         }
 
         &__img{
-            width: 25vw;
-            height: 25vw;
+            width: 30vw;
+            height: 28vw;
         }
     }
 
     &__item.big &__item{
         &__text{
             position: absolute;
-            top: 20%;
+            top: 25%;
+            left: 10%;
+            z-index: 99;
         }   
 
         &__img{
+            z-index: 0;
             position: absolute;
             right: 0;
             img{
-                height: 550px;
+                height: 600px;
             }
         }
     }

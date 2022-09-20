@@ -1,0 +1,35 @@
+.sliderproductview{
+    padding: 8rem 0;
+
+    &__title{
+        text-align: center;
+        font-size: 3.5rem;
+        text-transform: uppercase;
+        letter-spacing: 9px;
+        font-weight: 600;
+    }
+
+    &__description{
+        text-align: center;
+        font-size: 1.5rem;
+        width: 100%;
+        margin-top: 1rem;
+        color: $main-color;
+        @include flex(center,center);
+        p{
+            width: 50%;
+        }
+    }
+
+    &__slider{
+        margin-top: 3rem;
+        
+        button{
+            display: none!important;
+        }
+    }
+}
+
+.dots.productview{
+    margin-top: 2.5rem;
+}
