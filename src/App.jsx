@@ -3,7 +3,7 @@ import Header from './component/Header'
 import Footer from './component/Footer'
 import Home from './pages/Home'
 import Cart from './pages/Cart'
-import Product from './pages/Product'
+import Products from './pages/Products'
 import ProductType from './pages/ProductType'
 import ProductDetail from './pages/ProductDetail'
 import Buy from './pages/Buy'
@@ -32,7 +32,7 @@ const App = () => {
             <Routes>
                 <Route element={<UserLayout />}>
                     <Route index element={<Home />} />
-                    <Route path="/danh-muc" element={<Product />} />
+                    <Route path="/danh-muc" element={<Products />} />
                     <Route path="/danh-muc/:type" element={<ProductType />} />
                     <Route path="/gio-hang" element={<Cart />} />
                     <Route path="/thanh-toan" element={<Buy />} />

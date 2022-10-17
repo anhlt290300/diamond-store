@@ -1,0 +1,28 @@
+.titlepage {
+    @include flex(center, center);
+
+    p {
+        color: $main-color;
+        text-transform: capitalize;
+    }
+    
+    &__item {
+        margin: 1rem;
+        color: $main-color;
+        a {
+            color: $txt-main-color;
+            text-transform: capitalize;
+        }
+        a:hover {
+            border-bottom: 1px solid $txt-main-color;
+        }
+    }
+
+    &__item:nth-child(1){
+        margin-left: 0;
+    }
+
+    &__item:nth-last-child(1){
+        margin-right: 0;
+    }
+}

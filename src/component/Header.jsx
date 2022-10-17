@@ -11,7 +11,7 @@ const menuNav = [
   },
   {
     display : 'SAN PHAM',
-    path : '/san-pham'
+    path : '/danh-muc'
   },
   {
     display : 'GIOI THIEU',

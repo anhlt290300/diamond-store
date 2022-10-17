@@ -1,0 +1,23 @@
+.products {
+    margin-bottom: 2rem;
+    &__title {
+        @include flex(center, center);
+        flex-direction: column;
+        .item{
+            margin: 1rem 0;
+        }
+
+        &__name{
+            font-size: 4rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 10px;
+        }
+
+        &__description{
+            letter-spacing: 2px;
+        }
+    }
+
+    
+}

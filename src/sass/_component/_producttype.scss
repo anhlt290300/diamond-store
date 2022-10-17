@@ -1,0 +1,59 @@
+.producttype{
+
+    &__item{
+
+        &__link{
+                @include flex(center,flex-start);
+        }
+        
+        &__content{
+
+            &__title{
+                font-size: 4rem;
+                font-weight: 600;
+                letter-spacing: 2px;
+                margin: 2rem 0;
+                color: $txt-main-color;
+            }
+
+            &__price{
+                font-size: 2rem;
+                color: $txt-main-color;
+                margin: 2rem 0;
+            }
+
+            &__description{
+                line-height: 1.5rem;
+                color: $main-color;
+                margin: 2rem 0;
+            }
+            
+        }
+
+        &__quantity{
+            @include flex(center,flex-start);
+            margin: 2rem 0;
+            &__plus,&__number,&__minus{
+                width: 2.5rem;
+                height: 2.5rem;
+                border: 1px solid $main-color;
+                font-weight: 600;
+                @include flex(center,center);
+            }
+
+            &__plus:hover,&__minus:hover{
+                background-color: $txt-main-color;
+                color: white;
+            }
+
+            &__number{
+                font-size: 1.5rem;
+            }
+
+            &__minus{
+
+            }
+        }
+        
+    }
+}

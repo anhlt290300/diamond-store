@@ -1,9 +1,8 @@
-.product {
+.product{
     position: relative;
     @include flex(flex-start, center);
     flex-direction: column;
     padding: 0;
-    width: 16vw;
     &__label {
         z-index: 99;
         position: absolute;
@@ -137,4 +136,12 @@
             font-size: 1rem;
         }
     }
+}
+
+.product.sm{
+    width: 16vw;
+}
+
+.product.md{
+    width: 20vw;
 }

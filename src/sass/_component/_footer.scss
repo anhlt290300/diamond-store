@@ -1,51 +1,76 @@
-.footer{
-    &__slogan{
-        background-color: #f8f9fa!important;
-        @include flex(center,center);
+.footer {
+    &__slogan {
+        background-color: #f8f9fa !important;
+        @include flex(center, center);
         padding: 7rem 0;
-        &__item{
+        &__item {
             padding: 0 1rem;
             width: 27vw;
             //flex-grow: 1;
-            @include flex(center,center);
+            @include flex(center, center);
 
-            &__img{
-                .icon{
+            &__img {
+                .icon {
                     font-size: 3rem;
                 }
             }
 
-            &__text{
+            &__text {
                 margin-left: 2rem;
-                &__title{
+                &__title {
                     font-size: 1.2rem;
                     letter-spacing: 1px;
                     margin-bottom: 0.5rem;
                 }
 
-                &__content{
+                &__content {
                     color: $main-color;
                 }
             }
         }
 
-        &__item:nth-child(2){
+        &__item:nth-child(2) {
             border-left: 1px solid black;
             border-right: 1px solid black;
         }
     }
 
-    &__content{
+    &__content {
+        background-color: #e9ecef !important;
+        padding: 5rem 0;
+        &__title{
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+        }
 
+        &__text{
+            p{
+                width: auto;
+                color: $main-color;
+                font-size: 1.1rem;
+                letter-spacing: 1px;
+                line-height: 2rem;            
+            }
+            p:hover a{                
+                border-bottom: 1px solid rgba($color: #000000, $alpha: 1);                
+            }
+        }
+
+        
     }
 
-    &__note{
-        background-color: #343a40!important;
+    &__note {
+        background-color: #343a40 !important;
         padding: 3rem 0;
-        .container{
+        .container {
             width: 100%;
             color: rgba($color: white, $alpha: 0.8);
-            @include flex(center,space-between);
+            @include flex(center, space-between);
         }
+    }
+
+    &__item{
+        display: flex;
+        justify-content: space-around;
     }
 }

@@ -39,15 +39,15 @@ const SliderProductView = ({ title, description, arr }) => {
                         {
                             arr.map((item, index) => {
 
-                                console.log(123)
                                 return (
                                     <Product
+                                        size='sm'
                                         key={index}
                                         type={item.type}
                                         name={item.name}
-                                        path={item.path}
+                                        path={`danh-muc/${item.path}`}
                                         price={item.price}
-                                        img={item.img.img1}
+                                        img={item.img[0].data}
                                         label='sale'
                                     />
 

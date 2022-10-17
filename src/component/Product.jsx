@@ -3,11 +3,16 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import Button from './Button'
 
-const Product = ({ type, name, path, price, img, label }) => {
+const Product = ({ size,type, name, path, price, img, label }) => {
+
+    const getProduct = () =>{
+        localStorage.setItem('product-key',path)
+    }
+
 
     console.log(img)
     return (
-        <div className='product'>
+        <div className={`product ${size}`} onClick={()=>{ getProduct()}}>
             <div className={`product__label ${label === undefined ? '' : label}`}>
                 <p>{label}</p>
             </div>
@@ -26,6 +31,7 @@ const Product = ({ type, name, path, price, img, label }) => {
 }
 
 Product.propTypes = {
+    size: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     path: PropTypes.string.isRequired,
