@@ -20,11 +20,11 @@ const Product = ({ size,type, name, path, price, img, label }) => {
                 <Button path={path} size='md' content='view' animate='false' mode='dark' />
             </div>
             <div className="product__text">
-                <div className="product__text__type">{type}</div>
+                <div className="product__text__type"><p>{type}</p></div>
                 <div className="product__text__name">
-                    <Link to={path}>{name}</Link>
+                    <Link to={path}><p>{name}</p></Link>
                 </div>
-                <div className="product__text__price">${price}</div>
+                <div className="product__text__price"><p>${price}</p></div>
             </div>
         </div>
     )

@@ -8,7 +8,6 @@ import HotEvent from '../component/HotEvent'
 import hoteventData from '../assets/hotevent'
 
 import SliderProductView from '../component/SliderProductView'
-import Product from '../component/Product'
 import productData from '../assets/product'
 
 import Helmet from '../component/Helmet'

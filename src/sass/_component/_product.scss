@@ -1,4 +1,4 @@
-.product{
+.product {
     position: relative;
     @include flex(flex-start, center);
     flex-direction: column;
@@ -79,7 +79,7 @@
             position: relative;
             background-color: rgba($color: #fff, $alpha: 0.9);
             button {
-                display: block!important;
+                display: block !important;
             }
         }
 
@@ -113,21 +113,17 @@
             letter-spacing: 1px;
             position: relative;
             text-transform: uppercase;
-        }
-
-        &__name:hover {
-            a {
-                color: black;
+            p {
+                max-height: 3rem;
+                overflow-y: scroll;
+                scroll-behavior: smooth;
             }
         }
 
-        &__name:hover::after {
-            content: "";
-            width: 100%;
-            border-bottom: 1px solid $main-color;
-            position: absolute;
-            bottom: 2px;
-            left: 0;
+        &__name:hover {
+            p{
+                color: $main-color;
+            }
         }
 
         &__price {
@@ -136,12 +132,13 @@
             font-size: 1rem;
         }
     }
+
 }
 
-.product.sm{
+.product.sm {
     width: 16vw;
 }
 
-.product.md{
+.product.md {
     width: 20vw;
 }

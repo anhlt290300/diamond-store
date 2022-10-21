@@ -333,11 +333,11 @@ const getAllProduct = () => {
 
 
 
-const getProductsByType = (path) => products.find(Element => Element.path === path)
+const getProductsByPath = (path) => products.find(Element => Element.path === path)
 
 const productData = {
     getProducts,
-    getProductsByType,
+    getProductsByPath,
     getAllProduct
 
 }

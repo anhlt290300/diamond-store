@@ -9,13 +9,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { addItems } from '../redux/cart'
+
+
 const ProductType = () => {
+
+  const dispatch = useDispatch()
 
   const key = useLocation().pathname.slice(10)
 
-  const product = productData.getProductsByType(key)
+  const product = productData.getProductsByPath(key)
 
   const [number, setNumber] = useState(1)
+
+  const a = useSelector((state) => state.cartItems.value) 
+
+  console.log(a)
 
   const updateQuantity = (type) => {
     if (type === 'plus') {
@@ -24,6 +34,17 @@ const ProductType = () => {
       setNumber(number - 1 < 1 ? 1 : number - 1)
     }
   }
+
+  const addTocart = () => {
+
+    dispatch(addItems({
+      path: product.path,
+      quantity: number,
+      price: product.price
+    }))
+
+  }
+
 
   return (
     <Helmet title={product.name}>
@@ -67,10 +88,10 @@ const ProductType = () => {
                   {number}
                 </div>
                 <div className="producttype__item__quantity__plus" onClick={() => updateQuantity('plus')}>
-                  <FontAwesomeIcon icon={faPlus} className='icon plus'  />
+                  <FontAwesomeIcon icon={faPlus} className='icon plus' />
                 </div>
               </div>
-              <div className="producttype__item__btn">
+              <div className="producttype__item__btn" onClick={() => addTocart()}>
                 <Button content='add to cart' size='lg' animate='false' mode='dark' />
               </div>
             </div>
