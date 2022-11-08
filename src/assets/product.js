@@ -335,10 +335,22 @@ const getAllProduct = () => {
 
 const getProductsByPath = (path) => products.find(Element => Element.path === path)
 
+const getProductsByType = (type) => {
+    const arr = []
+    for(let i=0;i<type.length;i++){
+        products.find(Element =>{
+            if(Element.type === type[i]){
+                arr.push(Element)
+            }
+        })
+    }
+    return arr
+}
 const productData = {
     getProducts,
     getProductsByPath,
-    getAllProduct
+    getAllProduct,
+    getProductsByType
 
 }
 export default productData

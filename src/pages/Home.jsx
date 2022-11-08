@@ -16,7 +16,7 @@ const Home = () => {
   const preview = previewData
   const hotevent = hoteventData
   const product = productData.getProducts(12)
-  console.log(product[0].img[0].data)
+  //console.log(product[0].img[0].data)
   return (
     <Helmet title='Home'>
       <div className='home'

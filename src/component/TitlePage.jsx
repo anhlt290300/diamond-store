@@ -28,9 +28,9 @@ TitlePage.propTypes = {
   link1: PropTypes.string.isRequired,
   path1: PropTypes.string.isRequired,
   link2: PropTypes.string,
-  path2: PropTypes.string.isRequired,
+  path2: PropTypes.string,
   link3: PropTypes.string,
-  path3: PropTypes.string.isRequired,
+  path3: PropTypes.string,
 }
 
 export default TitlePage

@@ -10,21 +10,21 @@ const Product = ({ size,type, name, path, price, img, label }) => {
     }
 
 
-    console.log(img)
+    //console.log(img)
     return (
         <div className={`product ${size}`} onClick={()=>{ getProduct()}}>
             <div className={`product__label ${label === undefined ? '' : label}`}>
                 <p>{label}</p>
             </div>
             <div className="product__img" style={{ backgroundImage: `url(${img})`, backgroundRepeat: 'no-repeat' }}>
-                <Button path={path} size='md' content='view' animate='false' mode='dark' />
+                <Button path={path} size='md' content='view' animate={false} mode='dark' />
             </div>
             <div className="product__text">
                 <div className="product__text__type"><p>{type}</p></div>
                 <div className="product__text__name">
                     <Link to={path}><p>{name}</p></Link>
                 </div>
-                <div className="product__text__price"><p>${price}</p></div>
+                <div className="product__text__price"><p>${price.toString()}</p></div>
             </div>
         </div>
     )
@@ -35,7 +35,7 @@ Product.propTypes = {
     type: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     path: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
+    price: PropTypes.string.isRequired,
     img: PropTypes.string.isRequired,
     label: PropTypes.string,
 

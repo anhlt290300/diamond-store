@@ -3,7 +3,29 @@
         @include flex(center, center);
         margin: 2rem 0;
         width: 100%;
+        position: relative;
+        &__back {
+            position: absolute;
+            left: 0;
+            a {
+                @include flex(center, center);
+                p {
+                    padding: 0 2px;
+                    text-transform: uppercase;
+                    font-size: 1.2rem;
+                }
+            }
+        }
+
+        &__back:hover &__back__content {
+            border-bottom: 1px solid black;
+        }
     }
+
+    &__item:nth-last-child(1) {
+        margin: 4rem 0;
+    }
+
     &__title {
         font-size: 4rem;
         font-weight: 600;

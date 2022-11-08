@@ -14,7 +14,7 @@ const InfinityList = ({Data}) => {
         <div ref={listRef}>
 
             <Grid
-                col={4}
+                col={3}
                 mdCol={2}
                 smCol={1}
                 gap={20}

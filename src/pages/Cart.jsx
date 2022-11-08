@@ -3,13 +3,33 @@ import Helmet from '../component/Helmet'
 import TitlePage from '../component/TitlePage'
 import productData from '../assets/product'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAdd, faMinus, faX } from '@fortawesome/free-solid-svg-icons'
+import { faAdd, faArchive, faChevronLeft, faMinus, faX } from '@fortawesome/free-solid-svg-icons'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateItems, deleteItems } from '../redux/cart'
 import data from '../converse'
+import Button from '../component/Button'
+import { Link } from 'react-router-dom'
 
+import { db, ref, onValue, push } from '../firebase/config.js'
+import { useEffect } from 'react'
 
 const Cart = () => {
+
+  useEffect(() => {
+    push(ref(db, "abc"), {
+      name: "tuan anh",
+      ms: "anh yeu em"
+    })
+
+    onValue(ref(db, "user"), (data) => {
+      let message = []
+      data.forEach((item) => {
+        message.push(item.val())
+      })
+
+      console.log(message)
+    })
+  }, [])
 
   var total = 0
 
@@ -115,7 +135,7 @@ const Cart = () => {
                       })
                     }
                     {
-                        (!notNull) && `GIO HANG DANG TRONG`
+                      (!notNull) && `GIO HANG DANG TRONG`
                     }
                   </div>
                 </div>
@@ -139,6 +159,17 @@ const Cart = () => {
                     <div className="cart__content__right__item__value">${data.check(Number(data.conversePrice(total)) + 390.00 + 10.00)}</div>
                   </div>
                 </div>
+              </div>
+            </div>
+            <div className="cart__item">
+              <div className="cart__item__back">
+                <Link to='/danh-muc'>
+                  <FontAwesomeIcon icon={faChevronLeft} className='icon chevronleft' />
+                  <p className="cart__item__back__content">continue shopping</p>
+                </Link>
+              </div>
+              <div className="cart__item__checkout">
+                <Button content='proceed to checkout' size='lg' mode='dark' animate={false} />
               </div>
             </div>
           </div>

@@ -1,0 +1,25 @@
+.filter {
+    position: static;
+    top: 0;
+    &__category {
+        &__item {
+            padding: 1rem 0;
+            @include flex(center, flex-start);
+            margin-bottom: 1rem;
+            background-color: $cart-background-color;
+
+            &__checkbox {
+                @include flex(center, center);
+                input {
+                    width: 2rem;
+                }
+            }
+
+            &__content {
+                //font-size: 1.2rem;
+                text-transform: uppercase;
+                margin-left: 1rem;
+            }
+        }
+    }
+}

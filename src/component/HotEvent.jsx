@@ -15,7 +15,7 @@ const HotEvent = ({title,content,btncontent,img}) => {
                 <div className="line">{content.description}</div>
             </div>
             <div className="hotevent__text__btn">
-                <Button content={btncontent} size='md' animate='false' mode='light'/>
+                <Button content={btncontent} size='md' animate={false} mode='light'/>
             </div>
         </div>
         <div className="hotevent__img">

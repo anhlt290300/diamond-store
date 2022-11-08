@@ -7,19 +7,19 @@ import { useSelector } from 'react-redux'
 
 const menuNav = [
   {
-    display: 'TRANG CHU',
+    display: 'HOME',
     path: '/'
   },
   {
-    display: 'SAN PHAM',
+    display: 'PRODUCTS',
     path: '/danh-muc'
   },
   {
-    display: 'GIOI THIEU',
+    display: 'ABOUT US',
     path: '/gioi-thieu'
   },
   {
-    display: 'LIEN HE',
+    display: 'CONTACT',
     path: '/lien-he'
   }
 ]
@@ -95,7 +95,9 @@ const Header = () => {
               <FontAwesomeIcon icon={faSearch} className='icon search' />
             </div>
             <div className="tool-user">
-              <FontAwesomeIcon icon={faUserCircle} className='icon search' />
+              <Link to='/dang-nhap'>
+                <FontAwesomeIcon icon={faUserCircle} className='icon search' />
+              </Link>
             </div>
             <div className="tool-cart">
               <Link to='/gio-hang'>

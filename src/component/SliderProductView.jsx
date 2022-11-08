@@ -6,7 +6,7 @@ const SliderProductView = ({ title, description, arr }) => {
 
     const slider = React.useRef(null);
 
-    console.log(arr[0])
+    //console.log(arr[0])
 
     const settings = {
 

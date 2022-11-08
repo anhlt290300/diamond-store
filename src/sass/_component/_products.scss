@@ -3,21 +3,63 @@
     &__title {
         @include flex(center, center);
         flex-direction: column;
-        .item{
+        .item {
             margin: 1rem 0;
         }
 
-        &__name{
+        &__name {
             font-size: 4rem;
             text-transform: uppercase;
             font-weight: 600;
             letter-spacing: 10px;
         }
 
-        &__description{
+        &__description {
             letter-spacing: 2px;
         }
     }
 
-    
+    &__body {
+        &__inner {
+            @include flex(start, space-between);
+            position: relative;
+        }
+
+        &__left {
+            width: 23%;
+            position: sticky;
+            top: 7rem;
+        }
+
+        &__right {
+            width: 75%;
+        }
+    }
+}
+
+.filter-chose{
+    @include flex(center,space-between);
+    width: 50%;
+    padding: 5px 1.5rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: $main-color;
+    color: white;
+    margin-top: 1rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: transform 0.3s ease;
+}
+.x:hover{
+    color: black;
+    transform: scale(1.2);
+}
+
+.filter-chose:hover{
+    transform: scale(1.2);
+}
+
+.filter-chose.clearall{
+    background: white;
+    color: black;    
 }

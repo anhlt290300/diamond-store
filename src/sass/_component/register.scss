@@ -1,0 +1,76 @@
+.register{
+    &__title{
+        font-size: 1.3rem;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 2px;
+        padding: 2rem 1rem;
+        background-color: $cart-background-color;
+    }
+    &__description{
+        padding: 1rem;
+        color: $main-color;
+        p:nth-child(1){
+            font-size: 1.3rem;
+            margin: 1rem 0;
+        }
+        p:nth-last-child(1),p:nth-child(2){
+            line-height: 1.5rem;
+            letter-spacing: 1px;
+            padding-bottom: 1rem;
+            
+        }
+        p:nth-last-child(1){
+            border-bottom: 1px solid black;
+        }
+        
+    }
+    &__name{
+        padding: 1rem;
+        p{
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            color: $main-color;
+        }
+        input{
+            padding: 1rem;
+            font-size: 1.3rem;
+            width: 100%;
+        }
+    }
+
+    &__email{
+        padding: 1rem;
+        p{
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            color: $main-color;
+        }
+        input{
+            padding: 1rem;
+            font-size: 1.3rem;
+            width: 100%;
+        }
+    }
+
+    &__password{
+        padding: 1rem;
+        p{
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            color: $main-color;
+        }
+        input{
+            padding: 1rem;
+            font-size: 1.3rem;
+            width: 100%;
+        }
+    }
+
+    &__btn{
+        padding: 1rem;
+    }
+}

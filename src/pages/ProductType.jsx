@@ -25,7 +25,7 @@ const ProductType = () => {
 
   const a = useSelector((state) => state.cartItems.value) 
 
-  console.log(a)
+  //console.log(a)
 
   const updateQuantity = (type) => {
     if (type === 'plus') {
@@ -92,7 +92,7 @@ const ProductType = () => {
                 </div>
               </div>
               <div className="producttype__item__btn" onClick={() => addTocart()}>
-                <Button content='add to cart' size='lg' animate='false' mode='dark' />
+                <Button content='add to cart' size='lg' animate={false} mode='dark' />
               </div>
             </div>
           </Grid>
