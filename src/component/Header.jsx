@@ -4,6 +4,10 @@ import { faChevronDown, faDollarSign, faLanguage, faPhone, faSearch, faShoppingC
 import { Link, useLocation } from 'react-router-dom'
 import logo from '../image/logo.png'
 import { useSelector } from 'react-redux'
+import avatar from '../image/products/avatar.jpg'
+import { useContext } from 'react'
+import { AuthContext } from '../AuthContext'
+
 
 const menuNav = [
   {
@@ -25,15 +29,17 @@ const menuNav = [
 ]
 
 const Header = () => {
+
+
   const LanguageRef = useRef(null)
 
   const CoinRef = useRef(null)
 
   const Change = (Ref) => Ref.current.classList.toggle('active')
 
-  // console.log(LanguageRef.current   )
+  const { currentUser } = useContext(AuthContext)
 
-  //console.log(useLocation().pathname)
+  console.log(currentUser)
 
   const activeNav = useLocation().pathname
 
@@ -95,8 +101,8 @@ const Header = () => {
               <FontAwesomeIcon icon={faSearch} className='icon search' />
             </div>
             <div className="tool-user">
-              <Link to='/dang-nhap'>
-                <FontAwesomeIcon icon={faUserCircle} className='icon search' />
+              <Link to={currentUser ? '/nguoi-dung/order' : '/dang-nhap'}>
+                {currentUser ? (<img src={avatar}></img>) : (<FontAwesomeIcon icon={faUserCircle} className='icon search' />)}
               </Link>
             </div>
             <div className="tool-cart">

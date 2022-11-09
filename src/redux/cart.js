@@ -50,6 +50,9 @@ export const CartItemSlice = createSlice({
             for (let i = 0; i < state.value.length; i++) {
                 if (state.value[i].path === item_path) arr.splice(i, 1)
             }
+        },
+        createBill: (state, action) => {
+            localStorage.removeItem('cartItems_')
         }
     }
 })
@@ -60,7 +63,7 @@ const deleteItem = (arr, item) => arr.filter(e => e.path !== item.path)
 
 const sortItems = (arr) => arr.sort((a, b) => a.id > b.id ? 1 : (a.id < b.id ? -1 : 0))
 
-export const { addItems, updateItems, deleteItems } = CartItemSlice.actions;
+export const { addItems, updateItems, deleteItems, createBill } = CartItemSlice.actions;
 
 
 export default CartItemSlice.reducer;

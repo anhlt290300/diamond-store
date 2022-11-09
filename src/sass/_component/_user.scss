@@ -1,0 +1,32 @@
+.user {
+    &__title {
+        font-size: 4rem;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 10px;
+        text-align: center;
+        margin: 2rem 0;
+    }
+
+    &__description{
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    &__body{
+        width: 100%;
+        @include flex(flex-start,space-between);
+        
+        &__item{
+            position: relative;
+        }
+
+        &__item:nth-child(1){
+            width: 70%;
+        }
+
+        &__item:nth-child(2){
+            width: 25%;
+        }
+    }
+}

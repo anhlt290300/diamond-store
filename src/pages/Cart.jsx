@@ -3,32 +3,31 @@ import Helmet from '../component/Helmet'
 import TitlePage from '../component/TitlePage'
 import productData from '../assets/product'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAdd, faArchive, faChevronLeft, faMinus, faX } from '@fortawesome/free-solid-svg-icons'
+import { faAdd, faChevronLeft, faMinus, faX } from '@fortawesome/free-solid-svg-icons'
 import { useDispatch, useSelector } from 'react-redux'
-import { updateItems, deleteItems } from '../redux/cart'
+import { updateItems, deleteItems, createBill } from '../redux/cart'
 import data from '../converse'
 import Button from '../component/Button'
 import { Link } from 'react-router-dom'
-
-import { db, ref, onValue, push } from '../firebase/config.js'
+import { db_ } from '../firebase/config.js'
 import { useEffect } from 'react'
+import { useState } from 'react'
+import { doc, getDoc, updateDoc } from 'firebase/firestore'
+
 
 const Cart = () => {
 
+  //const token = JSON.parse(localStorage.getItem('user_'))
+
+  const date = new Date()
+
+  const [time, setTime] = useState(date.getDate() + "/" + (date.getMonth() + 1) + '/' + date.getFullYear())
+
+  const [id_, setId_] = useState(0)
+
   useEffect(() => {
-    push(ref(db, "abc"), {
-      name: "tuan anh",
-      ms: "anh yeu em"
-    })
+    setTime(date.getDate() + "/" + (date.getMonth() + 1) + '/' + date.getFullYear())
 
-    onValue(ref(db, "user"), (data) => {
-      let message = []
-      data.forEach((item) => {
-        message.push(item.val())
-      })
-
-      console.log(message)
-    })
   }, [])
 
   var total = 0
@@ -37,6 +36,8 @@ const Cart = () => {
 
   const products = useSelector((state) => state.cartItems.value)
 
+
+
   var listProducts = []
 
   products.forEach(element => {
@@ -44,16 +45,25 @@ const Cart = () => {
     listProducts = [...listProducts, { ...item, quantity: element.quantity }]
   });
 
-  const notNull = products.length > 0 ? true : false
-
   products.forEach(element => {
     let price = element.price
     let quantity = element.quantity
     total += data.conversePrice(price) * quantity
-    //console.log(element ) 
   })
 
   total = data.check(total)
+
+  const [bill, setBill] = useState( {
+    listItems: [...products],
+    quantity: total,
+    date: time,
+  })
+
+
+
+  //console.log(bill)
+
+  const notNull = products.length > 0 ? true : false
 
 
   const updateItem = (key, path, quantity) => {
@@ -73,6 +83,56 @@ const Cart = () => {
 
     return data.converseTotal({ price, quantity })
 
+  }
+
+  const pushBill = async () => {
+
+    try {
+
+      const uid = JSON.parse(localStorage.getItem('user_'))
+
+      const data = await getDoc(doc(db_, 'users', uid))
+
+      
+      let time_ = time
+
+      setBill(
+        {
+          listItems: [...products],
+          quantity: total,
+          date: time_,
+        }
+      )
+
+      const billsOld = [...data.data().bills]
+
+      const billsNew = [...billsOld, {
+        ...bill
+      }]
+
+      return billsNew
+
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
+
+  const updateData = async (billsNew) => {
+    const uid = JSON.parse(localStorage.getItem('user_'))
+    await updateDoc(doc(db_, "users", uid), {
+      bills: billsNew
+    })
+  }
+
+  const checkout = async () => {
+    updateData(await pushBill())
+
+    //updateCheckout()
+  }
+
+  const updateCheckout = () => {
+    dispatch(createBill())  
   }
 
   return (
@@ -130,6 +190,9 @@ const Cart = () => {
                             <div className="cart__content__left__body__item__delete" onClick={() => deleteItem(item.path)}>
                               <FontAwesomeIcon icon={faX} className='icon x' />
                             </div>
+                            {
+                              bill !== null ? bill.quantity + id_ : ''
+                            }
                           </div>
                         )
                       })
@@ -169,7 +232,7 @@ const Cart = () => {
                 </Link>
               </div>
               <div className="cart__item__checkout">
-                <Button content='proceed to checkout' size='lg' mode='dark' animate={false} />
+                <Button content='proceed to checkout' size='lg' mode='dark' animate={false} onClick={checkout} />
               </div>
             </div>
           </div>

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 const Button = props => {
   return (
-    <Link to={`${props.path === undefined ? '/' : props.path}`} className='link-btn'>
+    <Link to={`${props.path === undefined ? '' : props.path}`} className='link-btn'>
       <button className={`button ${props.size} ${props.mode === undefined ? 'dark' : props.mode} ${props.animate === undefined ? 'true' : props.animate}`} onClick={props.onClick ? () => props.onClick() : null}>
         <div className="content">
           {props.content}

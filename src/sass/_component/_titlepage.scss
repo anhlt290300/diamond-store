@@ -1,6 +1,6 @@
 .titlepage {
     @include flex(center, center);
-
+    text-transform: capitalize;
     p {
         color: $main-color;
         text-transform: capitalize;

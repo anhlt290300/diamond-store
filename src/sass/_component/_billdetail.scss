@@ -1,0 +1,52 @@
+.billdetail{
+
+    &__header{
+        font-size: 1.3rem;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 2px;
+        padding: 2rem 1rem;
+        background-color: $cart-background-color;
+
+    }
+
+    &__body{
+
+        &__item{
+            padding: 3rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+            &__content{
+                @include flex(center,center);
+                &__img{
+                    img{
+                        width: 18em;
+                    }
+                }
+
+                &__img:hover{
+                    cursor: pointer;
+                }
+
+                &__name{
+                    font-size: 0.8rem;
+                }
+
+                &__name:hover{
+                    color: $main-color;
+                    cursor: pointer;
+                }
+            }
+
+            
+
+            &__price,&__quantity,&__total{
+                @include flex(center,start);
+                font-size: 1.3rem;
+            }
+        }
+
+        &__item:nth-last-child(1){
+            border-bottom: none;
+        }
+    }
+}

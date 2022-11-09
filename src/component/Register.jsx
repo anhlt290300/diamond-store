@@ -1,7 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Button from './Button'
-const Register = ({ email, setEmail, password, setPassword, handleRegister, emailError, passwordError }) => {
+import { useState } from 'react'
+import { useRef } from 'react'
+const Register = ({ email, setEmail, password, setPassword, handleRegister, emailError, passwordError, name, setName }) => {
+
+
     return (
         <div className='register'>
             <div className="register__title">register</div>
@@ -14,6 +18,7 @@ const Register = ({ email, setEmail, password, setPassword, handleRegister, emai
                 <p>name</p>
                 <input
                     type="text"
+                    onChange={(e) => { setName(e.target.value) }}
                 />
             </div>
             <div className="register__email">
@@ -48,7 +53,9 @@ Register.propTypes = {
     setPassword: PropTypes.func,
     handleRegister: PropTypes.func,
     emailError: PropTypes.string,
-    passwordError: PropTypes.string
+    passwordError: PropTypes.string,
+    name: PropTypes.string,
+    setName: PropTypes.func
 }
 
 export default Register

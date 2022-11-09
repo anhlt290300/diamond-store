@@ -8,11 +8,20 @@ import ProductType from './pages/ProductType'
 import ProductDetail from './pages/ProductDetail'
 import Buy from './pages/Buy'
 import CustomerZone from './pages/CustomerZone'
-import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Navigate, Outlet, Route, Routes } from 'react-router-dom'
 import User from './pages/User'
 import UserOrder from './component/UserOrder'
 import UserProfile from './component/UserProfile'
 import UserAddress from './component/UserAddress'
+import BillDetail from './component/BillDetail'
+import { useContext } from 'react'
+import { AuthContext } from './AuthContext'
+
+
+
+
+
+
 const UserLayout = () => {
     return (
         <div>
@@ -23,10 +32,15 @@ const UserLayout = () => {
     )
 }
 
-const UserDetail = () =>{
-    return(
+const UserDetail = () => {
+
+    return (
         <div>
-            <Outlet/>
+            <Header />
+            <User>
+                <Outlet />
+            </User>
+            <Footer />
         </div>
     )
 }
@@ -40,6 +54,18 @@ const AdminLayout = () => {
 }
 
 const App = () => {
+
+    const { currentUser } =  useContext(AuthContext)
+    console.log((currentUser))    
+
+    const ProtectedRouter = ({ children }) => {
+        // if (currentUser) {
+        //     return <Navigate to='/dang-nhap' />
+        // } else {
+            return <>{children}</>
+        //}
+    }
+
     return (
         <BrowserRouter>
             <Routes>
@@ -55,10 +81,11 @@ const App = () => {
                 <Route element={<AdminLayout />}>
 
                 </Route>
-                <Route path='/nguoi-dung' element={<UserDetail />} >
+                <Route path='/nguoi-dung' element={<ProtectedRouter><UserDetail /></ProtectedRouter>} >
                     <Route path='order' element={<UserOrder />} />
                     <Route path='profile' element={<UserProfile />} />
                     <Route path='addresses' element={<UserAddress />} />
+                    <Route path='order/:billID' element={<BillDetail />} />
                 </Route>
             </Routes>
         </BrowserRouter>

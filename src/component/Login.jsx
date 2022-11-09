@@ -33,7 +33,7 @@ const Login = ({ email, setEmail, password, setPassword, handleLogin, emailError
                 <p className='errorPassword'>{passwordError}</p>
             </div>
             <div className="login__btn">
-                <Button content='log in' size='lg' animate={false} mode='dark'  onClick={handleLogin} />
+                <Button content='log in' size='lg' animate={false} mode='dark'  onClick={handleLogin}  />
             </div>
         </div>
     )
