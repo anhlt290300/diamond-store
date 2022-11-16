@@ -6,18 +6,20 @@ import Login from '../component/Login'
 import Register from '../component/Register'
 import { useState } from 'react'
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 
 import { db_ } from '../firebase/config'
 
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useContext } from 'react'
+import { AuthContext } from '../AuthContext'
 
 
 const CustomerZone = () => {
 
   const navigate = useNavigate()
-
+  const currentUser = useContext(AuthContext)
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
   const [pass, setPass] = useState('')
@@ -35,14 +37,37 @@ const CustomerZone = () => {
     setPassError('')
   }
 
+  const getuser = async (id) => {
+    const noteSnapshot = await getDoc(doc(db_, 'users', id))
+    if (noteSnapshot.exists()) {
+
+        return (noteSnapshot.data())
+    } else {
+        console.log("data not found");
+    }
+}
+
 
   const handleLogin = async () => {
     cleanError()
     try {
 
-      await signInWithEmailAndPassword(auth, email, pass)
-      navigate('/nguoi-dung/order')
+      const singin = await signInWithEmailAndPassword(auth, email, pass)
 
+
+      const human = await getuser( singin.user.uid)
+
+      //console.log(human)
+      if(human.key ==='user'){
+        navigate('/nguoi-dung/order')
+      }else{
+        navigate('/quan-li/dashboard')
+      }
+      
+
+
+
+      
     } catch (error) {
       switch (error.code) {
         case "auth/invalid-email":
@@ -68,7 +93,8 @@ const CustomerZone = () => {
         uid: res.user.uid,
         name: name,
         email: email,
-        bills: []
+        bills: [],
+        key: 'user'
       })
       navigate('/nguoi-dung/order')
       console.log('aaa')
@@ -85,16 +111,6 @@ const CustomerZone = () => {
     }
 
   }
-
-
-
-
-  useEffect(() => {
-    //authListener()
-  }, [])
-
-
-
 
 
   return <div className='customerzone'>

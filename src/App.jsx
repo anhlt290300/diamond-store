@@ -5,7 +5,7 @@ import Home from './pages/Home'
 import Cart from './pages/Cart'
 import Products from './pages/Products'
 import ProductType from './pages/ProductType'
-import ProductDetail from './pages/ProductDetail'
+
 import Buy from './pages/Buy'
 import CustomerZone from './pages/CustomerZone'
 import { BrowserRouter, Navigate, Outlet, Route, Routes } from 'react-router-dom'
@@ -16,11 +16,13 @@ import UserAddress from './component/UserAddress'
 import BillDetail from './component/BillDetail'
 import { useContext } from 'react'
 import { AuthContext } from './AuthContext'
-
-
-
-
-
+import HeaderAdmin from './component/HeaderAdmin'
+import DashBoard from './component/DashBoard'
+import ChartsAdmin from './component/ChartsAdmin'
+import BillsAdmin from './component/BillsAdmin'
+import UsersAdmin from './component/UsersAdmin'
+import Setting from './component/Setting'
+import ProductsAdmin from './component/ProductsAdmin'
 
 const UserLayout = () => {
     return (
@@ -47,23 +49,32 @@ const UserDetail = () => {
 
 const AdminLayout = () => {
     return (
-        <div>
-
+        <div className='flex relative z-50'>
+            <HeaderAdmin />
+            <Outlet />
         </div>
     )
 }
 
 const App = () => {
 
-    const { currentUser } =  useContext(AuthContext)
-    console.log((currentUser))    
+    const { currentUser } = useContext(AuthContext)
+    //console.log((currentUser))
 
-    const ProtectedRouter = ({ children }) => {
-        // if (currentUser) {
-        //     return <Navigate to='/dang-nhap' />
-        // } else {
+    const ProtectedRouterUser = ({ children }) => {
+        if (!currentUser) {
+            return <Navigate to='/dang-nhap' />
+        } else {
             return <>{children}</>
-        //}
+        }
+    }
+
+    const ProtectedRouterAdmin = ({ children }) => {
+        if (!currentUser) {
+            <Navigate to='/dang-nhap' />
+        } else {
+            return <>{children}</>
+        }
     }
 
     return (
@@ -75,17 +86,25 @@ const App = () => {
                     <Route path="/danh-muc/:type" element={<ProductType />} />
                     <Route path="/gio-hang" element={<Cart />} />
                     <Route path="/thanh-toan" element={<Buy />} />
-                    <Route path="/san-pham/:id" element={<ProductDetail />} />
+                    
                     <Route path='/dang-nhap' element={<CustomerZone />} />
                 </Route>
                 <Route element={<AdminLayout />}>
 
                 </Route>
-                <Route path='/nguoi-dung' element={<ProtectedRouter><UserDetail /></ProtectedRouter>} >
+                <Route path='/nguoi-dung' element={<ProtectedRouterUser><UserDetail /></ProtectedRouterUser>} >
                     <Route path='order' element={<UserOrder />} />
                     <Route path='profile' element={<UserProfile />} />
                     <Route path='addresses' element={<UserAddress />} />
                     <Route path='order/:billID' element={<BillDetail />} />
+                </Route>
+                <Route path='/quan-li' element={<ProtectedRouterAdmin><AdminLayout /></ProtectedRouterAdmin>}>
+                    <Route path='dashboard' element={<DashBoard />} />
+                    <Route path='chart' element={<ChartsAdmin />} />
+                    <Route path='bills' element={<BillsAdmin />} />
+                    <Route path='users' element={<UsersAdmin />} />
+                    <Route path='setting' element={<Setting />} />
+                    <Route path='products' element={<ProductsAdmin />} />
                 </Route>
             </Routes>
         </BrowserRouter>

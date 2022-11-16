@@ -190,9 +190,9 @@ const Cart = () => {
                             <div className="cart__content__left__body__item__delete" onClick={() => deleteItem(item.path)}>
                               <FontAwesomeIcon icon={faX} className='icon x' />
                             </div>
-                            {
+                            {/* {
                               bill !== null ? bill.quantity + id_ : ''
-                            }
+                            } */}
                           </div>
                         )
                       })

@@ -10,10 +10,13 @@ import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faX } from '@fortawesome/free-solid-svg-icons'
 import { useEffect } from 'react'
+
 const Products = () => {
   const [dataProduct, setDataProduct] = useState([])
 
   const [filter, setFilter] = useState([])
+
+  console.log(dataProduct)
 
   const updateFilter = (key) => {
 
