@@ -7,7 +7,9 @@ import { useSelector } from 'react-redux'
 import avatar from '../image/products/avatar.jpg'
 import { useContext } from 'react'
 import { AuthContext } from '../AuthContext'
-
+import { useEffect } from 'react'
+import { useState } from 'react'
+import CartBox from './CartBox'
 
 const menuNav = [
   {
@@ -30,6 +32,11 @@ const menuNav = [
 
 const Header = () => {
 
+  const [isCartBox, setIsCartBox] = useState(false)
+
+  const HeaderLogoRef = useRef(null)
+
+  const HeaderRef = useRef(null)
 
   const LanguageRef = useRef(null)
 
@@ -37,17 +44,44 @@ const Header = () => {
 
   const Change = (Ref) => Ref.current.classList.toggle('active')
 
-  const { currentUser } = useContext(AuthContext)
+  var { currentUser } = useContext(AuthContext)
 
-  console.log(currentUser)
+  //console.log(currentUser)
 
   const activeNav = useLocation().pathname
 
   const numberItem = useSelector((state) => state.cartItems.value.length)
 
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (document.body.scrollTop > 120 || document.documentElement.scrollTop > 120) {
+        HeaderRef.current.classList.add('fixed');
+        HeaderRef.current.classList.add('top-0');
+        HeaderRef.current.classList.add('-z-99');
+        HeaderRef.current.classList.add('shadow-lg');
+        HeaderRef.current.classList.add('bg-white');
+        HeaderLogoRef.current.classList.add('h-[5rem]')
+        HeaderLogoRef.current.classList.add('h-[8rem]')
+      }
+      else {
+        HeaderRef.current.classList.remove('fixed');
+        HeaderRef.current.classList.remove('top-0');
+        HeaderRef.current.classList.remove('-z-99');
+        HeaderRef.current.classList.remove('shadow-lg');
+        HeaderRef.current.classList.remove('bg-white');
+        HeaderLogoRef.current.classList.remove('h-[5rem]')
+        HeaderLogoRef.current.classList.add('h-[8rem]')
+      }
+    });
+    return () => {
+      window.removeEventListener("scroll");
+    }
+  }, []);
+
+
 
   return (
-    <div className='header'>
+    <div className='header relative' >
       <div className="menu-top">
         <div className="topmenu-right">
           <div className="box-contact">
@@ -73,9 +107,9 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className="container">
+      <div className="container" ref={HeaderRef}>
         <div className="menu-bottom">
-          <div className="box-logo">
+          <div className="box-logo h-[8rem]" ref={HeaderLogoRef}>
             <Link to='/'>
               <img src={logo} alt="" />
             </Link>
@@ -105,11 +139,12 @@ const Header = () => {
                 {currentUser ? (<img src={avatar}></img>) : (<FontAwesomeIcon icon={faUserCircle} className='icon search' />)}
               </Link>
             </div>
-            <div className="tool-cart">
-              <Link to='/gio-hang'>
-                <div className="cart-number">{numberItem}</div>
-                <FontAwesomeIcon icon={faShoppingCart} className='icon search' />
-              </Link>
+            <div className="tool-cart  transition-transform delay-300 ease-in-out duration-300" onClick={() => { setIsCartBox(!isCartBox) }}>
+              <div className="cart-number">{numberItem}</div>
+              <FontAwesomeIcon icon={faShoppingCart} className='icon search' />
+              {
+                isCartBox ? <CartBox/> : null
+              }
             </div>
           </div>
         </div>
