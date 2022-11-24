@@ -2,6 +2,7 @@ import { onAuthStateChanged } from "firebase/auth"
 import { doc, getDoc } from "firebase/firestore"
 import { createContext } from "react"
 import { useState,useEffect } from "react"
+import { useLocation } from "react-router-dom"
 import { auth, db_ } from "./firebase/config"
 
 export const AuthContext = createContext()
@@ -9,7 +10,7 @@ export const AuthContext = createContext()
 export const AuthContextProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(null)
 
-    
+    //var pathname = useLocation().pathname
 
     const getuser = async (id) => {
         const noteSnapshot = await getDoc(doc(db_, 'users', id))
@@ -27,14 +28,18 @@ export const AuthContextProvider = ({ children }) => {
             if (user !== null) {
                 localStorage.setItem('user_', JSON.stringify(user.uid))
                 setCurrentUser(await getuser(user.uid))
-            }            
+            }     
+            else{
+                setCurrentUser(null)
+            }  
+            //console.log('data:: '+ currentUser)     
         })
         return () => {
+            
             unsub()
         }
 
-
-    }, [])
+    },[])
 
     return (
         <AuthContext.Provider value={{ currentUser }}>

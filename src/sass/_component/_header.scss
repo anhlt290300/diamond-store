@@ -87,10 +87,16 @@
         @include flex(center,space-between);
 
         .box-logo{
-            height: 8rem;
             @include flex(center,center);
             a{
-                @include flex(center,center);
+                display: inline-block;
+                height: 100%;
+                width: 100%;
+                //@include flex(center,center);
+                img{
+                    height: 80%;
+                    margin-top: 0.5rem;
+                }
             }
         }
 
