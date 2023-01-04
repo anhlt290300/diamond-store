@@ -6,10 +6,11 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight, faX } from '@fortawesome/free-solid-svg-icons'
+import { useRef } from 'react'
+import PropTypes from 'prop-types'
+
 
 const CartBox = () => {
-
-    const [isOut, setIsOut] = useState(false)
 
     var total = 0
 
@@ -32,7 +33,10 @@ const CartBox = () => {
 
     total = data.check(total)
 
-    console.log(listProducts)
+    window.addEventListener('click', () => {
+        
+    })
+
     return (
         <div
             className='w-[28rem] absolute top-[3rem] -left-[25rem] transition-transform delay-300 ease-in-out duration-300 shadow-2xl bg-white py-2 px-8 animate-fadeUp'
@@ -45,8 +49,8 @@ const CartBox = () => {
 
                     <div className=''>
                         {
-                            listProducts.map((item,index)=>{
-                                return(
+                            listProducts.map((item, index) => {
+                                return (
                                     <div className='flex justify-between items-center py-4 border-b-[1px] border-zinc-300 ' key={index}>
 
                                         <div className='flex'>
@@ -61,7 +65,7 @@ const CartBox = () => {
 
                                         </div>
 
-                                        <FontAwesomeIcon icon={faX} className='text-zinc-500 hover:text-black cursor-pointer text-sm'/>
+                                        <FontAwesomeIcon icon={faX} className='text-zinc-500 hover:text-black cursor-pointer text-sm' />
 
                                     </div>
                                 )
@@ -81,6 +85,11 @@ const CartBox = () => {
 
         </div >
     )
+}
+
+CartBox.propTypes = {
+    Close: PropTypes.func,
+    isHover: PropTypes.bool
 }
 
 export default CartBox

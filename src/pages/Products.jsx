@@ -16,7 +16,7 @@ const Products = () => {
 
   const [filter, setFilter] = useState([])
 
-  console.log(dataProduct)
+  console.log(filter)
 
   const updateFilter = (key) => {
 

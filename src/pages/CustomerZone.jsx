@@ -41,11 +41,11 @@ const CustomerZone = () => {
     const noteSnapshot = await getDoc(doc(db_, 'users', id))
     if (noteSnapshot.exists()) {
 
-        return (noteSnapshot.data())
+      return (noteSnapshot.data())
     } else {
-        console.log("data not found");
+      console.log("data not found");
     }
-}
+  }
 
 
   const handleLogin = async () => {
@@ -55,19 +55,19 @@ const CustomerZone = () => {
       const singin = await signInWithEmailAndPassword(auth, email, pass)
 
 
-      const human = await getuser( singin.user.uid)
+      const human = await getuser(singin.user.uid)
 
-      //console.log(human)
-      if(human.key ==='user'){
+      console.log(human.key)
+      if (human.key === 'user') {
         navigate('/nguoi-dung/order')
-      }else{
+      } else if (human.key === 'admin') {
         navigate('/quan-li/dashboard')
       }
-      
 
 
 
-      
+
+
     } catch (error) {
       switch (error.code) {
         case "auth/invalid-email":
@@ -97,7 +97,7 @@ const CustomerZone = () => {
         key: 'user'
       })
       navigate('/nguoi-dung/order')
-      console.log('aaa')
+      //console.log('aaa')
     } catch (error) {
       switch (error.code) {
         case "auth/email-already-in-use":

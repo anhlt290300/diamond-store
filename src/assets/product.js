@@ -339,12 +339,14 @@ const getProductsByType = (type) => {
 
     const arr = []
 
-    products.forEach((Element)=>{
-        if(Element.type === type){
-            arr.push(Element)
+    products.forEach((Element) => {
+        for (let i = 0; i <= type.length; i++) {
+            if (Element.type == type[i]) {
+                arr.push(Element)
+            }
         }
     })
-    
+    //console.log(type)
     return arr
 }
 const productData = {

@@ -13,8 +13,6 @@ const HeaderAdmin = () => {
     const navigate = useNavigate()
 
     const pathname = useLocation().pathname.slice(useLocation().pathname.lastIndexOf('/') + 1)
-
-    const dashboardRef = useRef(null)
     const ChartsRef = useRef(null)
     const productRef = useRef(null)
     const userRef = useRef(null)
@@ -22,7 +20,7 @@ const HeaderAdmin = () => {
     const settingRef = useRef(null)
 
     const clear = () => {
-        dashboardRef.current.classList.remove('active')
+
         ChartsRef.current.classList.remove('active')
         productRef.current.classList.remove('active')
         userRef.current.classList.remove('active')
@@ -32,9 +30,7 @@ const HeaderAdmin = () => {
 
     useEffect(() => {
         clear()
-        if (pathname === 'dashboard') {
-            dashboardRef.current.classList.add('active')
-        } else if (pathname === 'chart') {
+        if (pathname === 'chart') {
             ChartsRef.current.classList.add('active')
         }
         else if (pathname === 'products') {
@@ -72,13 +68,6 @@ const HeaderAdmin = () => {
                 <p className='uppercase ml-4 text-xl font-bold'>diamond store</p>
             </div>
 
-            <Link to='dashboard' className='flex justify-start items-center py-[1.25rem] border-b-2 h-[5rem] cursor-pointer hover:text-black'
-                ref={dashboardRef}
-                onClick={() => active(dashboardRef)}
-            >
-                <FontAwesomeIcon icon={faDashboard} className='text-2xl' />
-                <p className='font-bold text-base ml-4'>Dashboard</p>
-            </Link>
 
             <Link to='chart' className='py-[1.75rem] cursor-pointer hover:text-black inline-block w-full'
                 ref={ChartsRef}

@@ -34,6 +34,8 @@ const Header = () => {
 
   const [isCartBox, setIsCartBox] = useState(false)
 
+  const [isHoverCart, setIsHoverCart] = useState(false)
+
   const HeaderLogoRef = useRef(null)
 
   const HeaderRef = useRef(null)
@@ -74,10 +76,11 @@ const Header = () => {
       }
     });
     return () => {
-      window.removeEventListener("scroll");
+      //window.removeEventListener("scroll");
     }
   }, []);
 
+  //console.log(isCartBox)
 
 
   return (
@@ -139,12 +142,19 @@ const Header = () => {
                 {currentUser ? (<img src={avatar}></img>) : (<FontAwesomeIcon icon={faUserCircle} className='icon search' />)}
               </Link>
             </div>
-            <div className="tool-cart  transition-transform delay-300 ease-in-out duration-300" onClick={() => { setIsCartBox(!isCartBox) }}>
+            <div className="tool-cart  transition-transform delay-300 ease-in-out duration-300"
+              onClick={() => { setIsCartBox(!isCartBox) }}
+              onMouseEnter={() => setIsHoverCart(true)}
+              onMouseLeave={() => setIsHoverCart(false)}
+            >
               <div className="cart-number">{numberItem}</div>
+
               <FontAwesomeIcon icon={faShoppingCart} className='icon search' />
               {
-                isCartBox ? <CartBox/> : null
+                isCartBox ? <CartBox /> : null
               }
+
+
             </div>
           </div>
         </div>
